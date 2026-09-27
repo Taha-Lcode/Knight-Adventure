@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cf5muge17e2nk"]
+
+[ext_resource type="Script" uid="uid://bov0fyi3r62pi" path="res://scripts/killzone.gd" id="1_xlapc"]
+[ext_resource type="FontFile" uid="uid://dm58qjkkxqjox" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_font"]
+
+[node name="Killzone" type="Area2D" unique_id=1433208854]
+collision_mask = 2
+script = ExtResource("1_xlapc")
+
+[node name="Timer" type="Timer" parent="." unique_id=953215264]
+wait_time = 1.0
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=111111111]
+
+[node name="YouDiedLabel" type="Label" parent="CanvasLayer" unique_id=222222222]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.235294, 0.235294, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 48
+text = "You Died!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
