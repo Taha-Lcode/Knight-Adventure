@@ -7,7 +7,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("die"):
 		body.die()
 	# This slows the timer the moment the player gets in contact with the Slime 
-	Engine.time_scale = 0.7
+	Engine.time_scale = 0.8
 	
 	# This make the "CollisionShape2D" Node of the player to be removed so that the player will fall off the View.
 	body.get_node("CollisionShape2D").queue_free()
